@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <title>Portfolio</title>
+    <link rel="icon" type="image/png" href="/e6.png">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
-            --primary-bg: #FAF9F7;
+            --primary-bg: #F3F0EC;
             --secondary-bg: #F3F0EC;
             --accent-bg: #E9E5E0;
             --text-primary: #2C2C2C;
@@ -25,7 +22,6 @@
             --mono-font: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             --body-font: Georgia, 'Times New Roman', serif;
         }
-
         body {
             font-family: var(--body-font);
             line-height: 1.7;
@@ -36,198 +32,126 @@
             font-size: 1.125rem;
         }
 
+        /* Navigation */
         nav {
-            background: var(--secondary-bg);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--primary-bg);
+            position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-bottom: 1px solid var(--border-color);
         }
-
+        
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
             gap: 2rem;
         }
-
+        
         nav a {
-            font-family: var(--mono-font);
-            color: var(--text-primary);
             text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.2s ease;
+            color: var(--text-primary);
+            font-family: var(--mono-font);
             font-size: 0.9rem;
-            letter-spacing: -0.02em;
+            transition: color 0.3s ease;
         }
-
+        
         nav a:hover {
-            background-color: var(--accent-bg);
+            color: var(--text-secondary);
         }
 
-        section {
+        /* Sections */
+        .section {
             padding: 4rem 2rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        #hero {
-            background: var(--secondary-bg);
-            padding-top: 6rem;
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin-bottom: 2rem;
-            object-fit: cover;
-            border: 4px solid var(--primary-bg);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        #about {
-            background: var(--primary-bg);
-        }
-
-        #projects {
-            background: var(--secondary-bg);
-        }
-
+        /* Projects Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            max-width: 1200px;
-            width: 100%;
             margin-top: 2rem;
         }
 
         .project-card {
-            background: var(--primary-bg);
-            padding: 1.5rem;
+            background: var(--accent-bg);
+            padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
         }
 
+        /* Contact Section */
         #contact {
             background: var(--primary-bg);
+            text-align: center;
         }
 
         .social-links {
             display: flex;
+            justify-content: center;
             gap: 2rem;
             margin-top: 2rem;
         }
 
         .social-links a {
-            font-family: var(--mono-font);
             color: var(--text-primary);
             text-decoration: none;
+            font-family: var(--mono-font);
+            font-size: 0.9rem;
             padding: 0.5rem 1rem;
             border: 1px solid var(--border-color);
             border-radius: 4px;
-            transition: background-color 0.2s ease;
-            font-size: 0.9rem;
-            letter-spacing: -0.02em;
+            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background-color: var(--accent-bg);
+            background: var(--hover-color);
         }
 
-        h1, h2, h3 {
-            font-family: var(--mono-font);
-            letter-spacing: -0.03em;
-        }
-
-        h1 {
-            font-size: 2.75rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
+        /* Typography */
         h2 {
-            font-size: 2.25rem;
+            font-size: 2.5rem;
             margin-bottom: 2rem;
-            color: var(--text-primary);
-            font-weight: 600;
         }
 
         h3 {
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-weight: 500;
             font-size: 1.5rem;
-        }
-
-        p {
-            max-width: 32em;
-            margin-bottom: 1.2rem;
-            color: var(--text-secondary);
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            h3 {
-                font-size: 1.3rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
     <nav>
+        <a href="#about" class="nav-brand">Your Name</a>
         <ul>
-            <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <section id="hero">
-        <img src="/api/placeholder/200/200" alt="Your Profile Picture" class="profile-img">
-        <h1>Your Name</h1>
-        <p>Your Title or Tagline</p>
-    </section>
-
-    <section id="about">
+    <section id="about" class="section">
         <h2>About Me</h2>
-        <p>
-            Write a brief introduction about yourself here. Share your background,
-            interests, and what drives you. This is your chance to make a great
-            first impression!
-        </p>
+        <p>Write a brief introduction about yourself here. Share your background, interests, and what drives you. This is your chance to make a great first impression!</p>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="section">
         <h2>My Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
@@ -245,7 +169,7 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="section">
         <h2>Get In Touch</h2>
         <p>Feel free to reach out for collaborations or just a friendly chat.</p>
         <div class="social-links">
