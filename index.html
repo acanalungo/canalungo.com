@@ -4,28 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Personal Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
     <style>
-        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
+        :root {
+            --primary-bg: #FAF9F7;
+            --secondary-bg: #F3F0EC;
+            --accent-bg: #E9E5E0;
+            --text-primary: #2C2C2C;
+            --text-secondary: #565656;
+            --border-color: #E2DED9;
+            --hover-color: #D6D0C8;
+            --mono-font: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --body-font: Georgia, 'Times New Roman', serif;
         }
 
-        /* Navigation */
+        body {
+            font-family: var(--body-font);
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--primary-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 1.125rem;
+        }
+
         nav {
-            background: #2c3e50;
+            background: var(--secondary-bg);
             padding: 1rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
         }
 
         nav ul {
@@ -36,16 +54,21 @@
         }
 
         nav a {
-            color: white;
+            font-family: var(--mono-font);
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            font-size: 0.9rem;
+            letter-spacing: -0.02em;
         }
 
         nav a:hover {
-            color: #3498db;
+            background-color: var(--accent-bg);
         }
 
-        /* Sections */
         section {
             padding: 4rem 2rem;
             min-height: 100vh;
@@ -56,10 +79,8 @@
             text-align: center;
         }
 
-        /* Hero section */
         #hero {
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            color: white;
+            background: var(--secondary-bg);
             padding-top: 6rem;
         }
 
@@ -69,14 +90,18 @@
             border-radius: 50%;
             margin-bottom: 2rem;
             object-fit: cover;
+            border: 4px solid var(--primary-bg);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
-        /* About section */
         #about {
-            background: #f9f9f9;
+            background: var(--primary-bg);
         }
 
-        /* Projects section */
+        #projects {
+            background: var(--secondary-bg);
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -87,16 +112,21 @@
         }
 
         .project-card {
-            background: white;
+            background: var(--primary-bg);
             padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        /* Contact section */
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
         #contact {
-            background: #2c3e50;
-            color: white;
+            background: var(--primary-bg);
         }
 
         .social-links {
@@ -106,27 +136,53 @@
         }
 
         .social-links a {
-            color: white;
+            font-family: var(--mono-font);
+            color: var(--text-primary);
             text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            font-size: 0.9rem;
+            letter-spacing: -0.02em;
         }
 
-        /* Typography */
+        .social-links a:hover {
+            background-color: var(--accent-bg);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--mono-font);
+            letter-spacing: -0.03em;
+        }
+
         h1 {
-            font-size: 3rem;
+            font-size: 2.75rem;
             margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             margin-bottom: 2rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            font-size: 1.5rem;
         }
 
         p {
-            max-width: 600px;
-            margin-bottom: 1rem;
+            max-width: 32em;
+            margin-bottom: 1.2rem;
+            color: var(--text-secondary);
         }
 
-        /* Responsive design */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -134,6 +190,10 @@
 
             h2 {
                 font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
             }
 
             .projects-grid {
